@@ -1,10 +1,303 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-  <title>Manjesh Web Solutions</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manjesh | AI Agent Web UI & Portfolio</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar Design */
+        .sidebar {
+            width: 300px;
+            background-color: #1e293b;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #334155;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: #38bdf8;
+            text-align: center;
+        }
+
+        .sidebar .subtitle {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ea580c;
+            margin: 15px 0 8px 0;
+            font-weight: bold;
+        }
+
+        /* Skills Tag Style */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+
+        .skill-tag {
+            background-color: #334155;
+            color: #38bdf8;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            border: 1px solid #475569;
+        }
+
+        /* Contact Details Style */
+        .contact-info {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background: #0f172a;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+
+        .contact-info a {
+            color: #38bdf8;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Chat Area */
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #0f172a;
+        }
+
+        .chat-header {
+            padding: 20px;
+            background-color: #1e293b;
+            border-bottom: 1px solid #334155;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            color: #f8fafc;
+        }
+
+        .status-dot {
+            height: 10px;
+            width: 10px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            max-width: 75%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .user-message {
+            background-color: #38bdf8;
+            color: #0f172a;
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+
+        .ai-message {
+            background-color: #1e293b;
+            color: #f8fafc;
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+            border: 1px solid #334155;
+        }
+
+        /* Input Area */
+        .chat-input-area {
+            padding: 20px;
+            background-color: #0f172a;
+        }
+
+        .input-wrapper {
+            display: flex;
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 8px;
+        }
+
+        .input-wrapper input {
+            flex: 1;
+            background: none;
+            border: none;
+            color: #f8fafc;
+            padding: 10px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .input-wrapper button {
+            background-color: #38bdf8;
+            color: #0f172a;
+            border: none;
+            padding: 0 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .input-wrapper button:hover {
+            background-color: #0ea5e9;
+        }
+
+        .dev-footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 10px;
+        }
+
+        /* Responsive Sidebar */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                max-height: 250px;
+                border-right: none;
+                border-bottom: 1px solid #334155;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Welcome to Manjesh Web Solutions</h1>
-  <p>Professional Website Design Services</p>
+
+    <!-- Sidebar Component -->
+    <div class="sidebar">
+        <h2>मंजेश (Manjesh)</h2>
+        <div class="subtitle">वेब डेवलपर / AI UI इंजीनियर</div>
+        
+        <div class="section-title">तकनीकी स्किल्स (Skills)</div>
+        <div class="skills-container">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Responsive Design</span>
+            <span class="skill-tag">GitHub/Git</span>
+            <span class="skill-tag">UI/UX Layouts</span>
+            <span class="skill-tag">Frontend Dev</span>
+        </div>
+
+        <div class="section-title">संपर्क करें (Contact Me)</div>
+        <div class="contact-info">
+            <div>📧 <b>ईमेल:</b> <a href="mailto:kumarmanjesh3975@gmail.com">kumarmanjesh3975@gmail.com</a></div>
+            <div>📞 <b>फ़ोन:</b> +91 XXXXXXXXXX</div>
+            <div>🌐 <b>GitHub:</b> <a href="https://github.com" target="_blank">kumarmanjesh3975-art</a></div>
+            <div>💼 <b>LinkedIn:</b> <a href="#" target="_blank">मेरी प्रोफाइल लिंक</a></div>
+        </div>
+    </div>
+
+    <!-- Chat Interface -->
+    <div class="chat-container">
+        <div class="chat-header">
+            <h3>AI Agent Web UI</h3>
+            <div><span class="status-dot"></span> एजेंट एक्टिव है</div>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="message ai-message">
+                नमस्ते! मैं आपका एडवांस AI असिस्टेंट हूँ। मैं लाइव हो चुका हूँ। मंजेश के इस शानदार वेब प्रोजेक्ट पर आपका स्वागत है!
+            </div>
+            <div class="message user-message">
+                क्या यह प्रोजेक्ट रिस्पॉन्सिव और जॉब रेडी है?
+            </div>
+            <div class="message ai-message">
+                हाँ, यह पूरी तरह से मोबाइल और डेस्कटॉप फ्रेंडली है, डार्क थीम पर आधारित है और जॉब रेडी पोर्टफोलियो के रूप में तैयार किया गया है।
+            </div>
+        </div>
+
+        <div class="chat-input-area">
+            <div class="input-wrapper">
+                <input type="text" id="userInput" placeholder="AI एजेंट से कुछ भी पूछें..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+            <div class="dev-footer">
+                Designed & Developed with ❤️ by Manjesh
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const messageText = input.value.trim();
+            if (messageText === '') return;
+            const chatMessages = document.getElementById('chatMessages');
+            const userDiv = document.createElement('div');
+            userDiv.className = 'message user-message';
+            userDiv.innerText = messageText;
+            chatMessages.appendChild(userDiv);
+            input.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            setTimeout(() => {
+                const aiDiv = document.createElement('div');
+                aiDiv.className = 'message ai-message';
+                aiDiv.innerText = "मैसेज के लिए धन्यवाद! यह एक इंटरैक्टिव फ्रंटएंड प्रोटोटाइप है। बैकएंड API इंटीग्रेशन जल्द आ रहा है।";
+                chatMessages.appendChild(aiDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 1000);
+        }
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') sendMessage();
+        }
+    </script>
 </body>
 </html>
